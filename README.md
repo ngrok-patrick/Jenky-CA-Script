@@ -3,6 +3,19 @@ Create a CA using OpenSSL and generate a Server certificate
 
 Here's a sample script that utilizes OpenSSL to generate a Certificate Authority with the required extensions for ngrok to accept them. Additionally, it generates a Server certificate that can also be utilized.
 
+If you are on MacOs, you will need to add an extension to your `/etc/ssl/openssl.cnf` file.
+
+Add a section for the basic constraints for your CA cert. Openssl.cnf on MacOs is located here: <br/>
+`sudo vi /etc/ssl/openssl.cnf`
+
+Add the **“ext”** to the bottom of the openssl.cnf in /etc/ssl/openssl.cnf
+```
+[ ext ]
+basicConstraints=CA:TRUE,pathlen:0
+```
+Below is the script that does all of the work
+
+**Jenky-CA-Script.sh**
 ```
 #!/bin/sh
 
