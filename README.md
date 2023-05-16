@@ -47,6 +47,11 @@ openssl x509 -req -in server-req.pem -days 60 -CA ca-cert.pem -CAkey ca-key.pem 
 echo "Server's signed certificate"
 openssl x509 -in server-cert.pem -noout -text
 ```
+After you run the script, these files will be in your project directory. If you are not
+familar with Certificates, here is an explanation of the files that will get created.
+
+<img width="757" alt="image" src="https://github.com/ngrok-patrick/Jenky-CA-Script/assets/112023765/467a3a7b-0b34-4d32-9cc0-857e9a6d25f0">
+
 Once you have your keys, and created an Edge in ngrok, you can test the certificates like this:
 ```
 curl https://yourEdge.ngrok.app --key server-key.pem --cert server-cert.pem
